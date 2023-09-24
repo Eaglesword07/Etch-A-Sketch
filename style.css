@@ -1,0 +1,14 @@
+
+
+
+.grid-container {
+    display: flex;
+}
+
+.grid-row {
+    border: solid purple;
+}
+
+.hover-grid-row {
+    background-color: black;
+}
