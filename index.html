@@ -15,17 +15,26 @@
 
     <div class="container-fluid">
         <header>
-            <h1>Etch A Sketch</h1>
+            <h1 class="display-3">Etch A Sketch</h1>
         </header>
+
+        <div>
+            <button class="btn btn-dark btn-circle btn-xl">Black</button>
+            <button>RGB</button>
+            <button id="resetbtn">Reset or Pick a new grid size</button>
+        </div>
 
         <div class="container d-flex">
             <div id="container"></div>
-
-            <div>
-                <button id="grid-amount" class="btn btn-secondary">Click Me!</button>
-            </div>
         </div>
+    </div>
 
+    <!-- Pop Up div -->
+    <div id="pop-up">
+        <h2>Etch-A-Sketch</h2>
+        <p>To etch your sketch, Please click on the button and specify the amount of grids you want between 2 and 100.
+            Enjoy</p>
+        <button id="grid-amount" class="btn btn-secondary">Choose your preferred grid size!</button>
     </div>
 
     <script src="script.js"></script>

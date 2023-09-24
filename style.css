@@ -1,14 +1,59 @@
 
+body {
+    background-color: #b2cc47de !important;
+}
 
+header {
+    text-align: center;
+    margin: 50px;
+}
 
 .grid-container {
     display: flex;
 }
 
 .grid-row {
-    border: solid purple;
+    border: solid #cf46d4c3;
 }
 
 .hover-grid-row {
     background-color: black;
 }
+
+#pop-up{
+    background-color: #ffffff;
+    width: 420px;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    display: none;
+    font-family: “Poppins”,sans-serif;
+    text-align: center;
+}
+
+#pop-up button{
+    display: block;
+    margin:  0 auto;
+    background-color: transparent;
+    color: #ffffff;
+    background: #03549a;
+    border-radius: 10px;
+    width: auto;
+    height: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.pop-up h2{
+    margin-top: -20px;
+ }
+ .pop-up p{
+     font-size: 14px;
+     text-align: justify;
+     margin: 20px 0;
+     line-height: 25px;
+ }
