@@ -1,10 +1,16 @@
 
 // Variables
 const container = document.querySelector('#container');
-const mainContainer = document.querySelector('.container-fluid');
+const mainContainer = document.querySelector('.body-container');
 const gridAmountBtn = document.querySelector('#grid-amount');
-const resetBtn = document.querySelector('#resetbtn');
+const resetBtn = document.querySelector('#reset-btn');
+const blackBtn = document.querySelector('#black-btn');
+const randomBgBtn = document.querySelector('#random-btn');
+const userColor = document.querySelector('#color-choice');
+const eraserBtn = document.querySelector('#eraser');
 
+
+// Event Listeners
 
 // Create popUp to initialize the page
 window.addEventListener('load', () => {
@@ -16,11 +22,6 @@ window.addEventListener('load', () => {
   )
 })
 
-// Reset the sketch
-resetBtn.addEventListener('click', () => {
-  location.reload();
-})
-
 // button creates grid as well as close the popup window
 gridAmountBtn.addEventListener('click', () => {
   mainContainer.style.display = 'block';
@@ -28,12 +29,46 @@ gridAmountBtn.addEventListener('click', () => {
   createGrid();
 })
 
+// Reset the sketch
+resetBtn.addEventListener('click', () => {
+  location.reload();
+})
+
+// change hover to balck backgrounds
+blackBtn.addEventListener('click', () => {
+  hoverOver();
+})
+
+// Change hover to random colors
+randomBgBtn.addEventListener('click', () => {
+  addRandomRGBColors();
+})
+
+// Eraser
+eraserBtn.addEventListener('click', () => {
+  erasePage();
+})
+
+// User chooses color
+userColor.addEventListener('input', (event) => {
+  document.querySelectorAll('.grid-row').forEach((element) => {
+    element.addEventListener('mouseover', () => {
+      element.style.backgroundColor = event.target.value;
+    })
+  })
+})
+
+// Functions
+
 // Create our grid divs
 const createGrid = (amountOfGrids) => {
 
-  amountOfGrids = parseInt(prompt("How many grids would you like?"));
+  amountOfGrids = parseInt(prompt(`How many grids would you like?`));
+  if (isNaN(amountOfGrids)) {
+    amountOfGrids = 16;
+  }
   if ((amountOfGrids < 2) || (amountOfGrids > 100)) {
-    alert(`Please give me a number between 2 and 100`);
+    alert(`Please give me a digit between 2 and 100`);
     createGrid();
   } else {
 
@@ -59,16 +94,34 @@ const createGrid = (amountOfGrids) => {
   }
 }
 
-// Change the color of the divs when hovered over
+// Change the color of the divs to black when hovered over
 const hoverOver = () => {
   document.querySelectorAll('.grid-row').forEach((element) => {
     element.addEventListener('mouseover', () => {
-      element.classList.remove('grid-row');
-      element.classList.add('hover-grid-row');
+      element.style.backgroundColor = 'black';
+    })
+  })
+}
+
+// Change to random colors when hovered over
+const addRandomRGBColors = () => {
+  document.querySelectorAll('.grid-row').forEach((element) => {
+    element.addEventListener('mouseover', () => {
+      let r = Math.floor(Math.random() * 256);
+      let g = Math.floor(Math.random() * 256);
+      let b = Math.floor(Math.random() * 256);
+      element.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
     })
   })
 }
 
 
-
+// Erase page
+const erasePage = () => {
+  document.querySelectorAll('.grid-row').forEach((element) => {
+    element.addEventListener('mouseover', () => {
+      element.style.backgroundColor = 'white';
+    })
+  })
+}
 

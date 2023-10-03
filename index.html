@@ -13,27 +13,43 @@
 
 <body>
 
-    <div class="container-fluid">
+    <div class="main container-fluid">
         <header>
-            <h1 class="display-3">Etch A Sketch</h1>
+            <h1 class="display-3">Etch-A-Sketch</h1>
         </header>
 
-        <div>
-            <button class="btn btn-dark btn-circle btn-xl">Black</button>
-            <button>RGB</button>
-            <button id="resetbtn">Reset or Pick a new grid size</button>
+        <div class="body-container">
+            <div id="btns-div" class="container">
+                <div class="btn-select-container">
+                    <button id="black-btn" class="btn btn-dark btn-xl">Black</button>
+                    <button id="random-btn" class="btn btn-xl btn-warning">RGB</button>
+                    <div id="colors" class="btn btn-xl btn-light">
+                        <label for="color-choice">Pick a color of your choice: </label>
+                        <input type="color" type="button" name="color-choice" id="color-choice" value="#fffbb4">
+                    </div>
+                </div>
+                <div class="btn-select-container">
+                    <button id="eraser" class="btn btn-xl btn-outline-dark">Eraser</button>
+                    <button id="reset-btn" class="btn btn-xl btn-secondary">Reset or choose a new grid size</button>
+                </div>
+            </div>
+
+            <div id="grid-container" class="container d-flex">
+                <div id="container"></div>
+            </div>
         </div>
 
-        <div class="container d-flex">
-            <div id="container"></div>
-        </div>
+        <footer>
+            <h4> Copyright &copy; A Douglas Project 2023 - All Rights Reserved.</h4>
+        </footer>
     </div>
 
     <!-- Pop Up div -->
-    <div id="pop-up">
+    <div id="pop-up" class="container-fluid">
         <h2>Etch-A-Sketch</h2>
         <p>To etch your sketch, Please click on the button and specify the amount of grids you want between 2 and 100.
-            Enjoy</p>
+        </p>
+        <p>Default amount of grids is 16. Enjoy</p>
         <button id="grid-amount" class="btn btn-secondary">Choose your preferred grid size!</button>
     </div>
 
